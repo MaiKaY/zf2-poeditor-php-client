@@ -1,0 +1,39 @@
+{
+    "name": "maikay/zf2-poeditor-php-client",
+    "type": "library",
+    "description": "API Client for https://poeditor.com",
+    "homepage": "https://github.com/maikay/zf2-poeditor-php-client",
+    "license": "MIT",
+    "keywords": [
+        "zf2",
+        "poeditor",
+        "api",
+        "php client",
+        "localization"
+    ],
+    "authors": [
+        {
+            "name": "Maik Schmidt",
+            "email": "maik.schmidt.hl@gmail.com"
+        }
+    ],
+    "support": {
+        "issues": "https://github.com/maikay/zf2-poeditor-php-client/issues",
+        "source": "https://github.com/maikay/zf2-poeditor-php-client"
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "require": {
+        "php": ">=5.4",
+        "zendframework/zendframework": "~2.3.1"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "4.3.*",
+        "mockery/mockery": "0.9.*"
+    },
+    "autoload": {
+        "psr-0": {
+            "PhpClientPoeditor\\": "src/"
+        }
+    }
+}
