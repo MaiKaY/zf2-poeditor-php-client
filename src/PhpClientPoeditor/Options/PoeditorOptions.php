@@ -40,6 +40,8 @@ class PoeditorOptions extends AbstractOptions
     private $projectId;
     /** @var array */
     private $languages = array();
+    /** @var array */
+    private $strategies = array();
 
     /**
      * @param string $apiToken
@@ -65,9 +67,9 @@ class PoeditorOptions extends AbstractOptions
      *
      * @return PoeditorOptions
      */
-    public function setLanguages($languages)
+    public function setLanguages(array $languages)
     {
-        $this->languages = (array) $languages;
+        $this->languages = $languages;
         return $this;
     }
 
@@ -96,6 +98,25 @@ class PoeditorOptions extends AbstractOptions
     public function getProjectId()
     {
         return $this->projectId;
+    }
+
+    /**
+     * @param array $strategies
+     *
+     * @return PoeditorOptions
+     */
+    public function setStrategies(array $strategies)
+    {
+        $this->strategies = $strategies;
+        return $this;
+    }
+
+    /**
+     * @return array
+     */
+    public function getStrategies()
+    {
+        return $this->strategies;
     }
 
     /**
