@@ -30,14 +30,14 @@ use Zend\ServiceManager\ServiceLocatorAwareInterface;
 use Zend\ServiceManager\ServiceLocatorInterface;
 
 /**
- * PhpClientPoeditor\Options\ApplicationOptionsFactory
+ * PhpClientPoeditor\Options\OptionsFactory
  */
-class ApplicationOptionsFactory implements FactoryInterface
+class OptionsFactory implements FactoryInterface
 {
     /**
      * {@inheritdoc}
      *
-     * @return PoeditorOptions
+     * @return Options
      */
     public function createService(ServiceLocatorInterface $serviceLocator)
     {
@@ -48,7 +48,7 @@ class ApplicationOptionsFactory implements FactoryInterface
         /** @var array $config */
         $config = $serviceLocator->get('Config');
 
-        $options = new PoeditorOptions($config['PhpClientPoeditor']['poeditor']);
+        $options = new Options($config['PhpClientPoeditor']['options']);
 
         return $options;
     }

@@ -28,9 +28,9 @@ namespace PhpClientPoeditor\Options;
 use Zend\Stdlib\AbstractOptions;
 
 /**
- * PhpClientPoeditor\Options\PoeditorOptions
+ * PhpClientPoeditor\Options\Options
  */
-class PoeditorOptions extends AbstractOptions
+class Options extends AbstractOptions
 {
     /** @var string */
     private $url;
@@ -46,7 +46,7 @@ class PoeditorOptions extends AbstractOptions
     /**
      * @param string $apiToken
      *
-     * @return PoeditorOptions
+     * @return Options
      */
     public function setApiToken($apiToken)
     {
@@ -65,7 +65,7 @@ class PoeditorOptions extends AbstractOptions
     /**
      * @param array $languages
      *
-     * @return PoeditorOptions
+     * @return Options
      */
     public function setLanguages(array $languages)
     {
@@ -84,7 +84,7 @@ class PoeditorOptions extends AbstractOptions
     /**
      * @param int $projectId
      *
-     * @return PoeditorOptions
+     * @return Options
      */
     public function setProjectId($projectId)
     {
@@ -103,7 +103,7 @@ class PoeditorOptions extends AbstractOptions
     /**
      * @param array $strategies
      *
-     * @return PoeditorOptions
+     * @return Options
      */
     public function setStrategies(array $strategies)
     {
@@ -122,7 +122,7 @@ class PoeditorOptions extends AbstractOptions
     /**
      * @param string $url
      *
-     * @return PoeditorOptions
+     * @return Options
      */
     public function setUrl($url)
     {
