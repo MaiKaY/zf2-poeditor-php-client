@@ -25,20 +25,20 @@
 
 namespace PhpClientPoeditor\Service;
 
-use PhpClientPoeditor\Options\PoeditorOptions;
+use PhpClientPoeditor\Options\Options;
 
 /**
  * PhpClientPoeditor\Service\ClientService
  */
 class ClientService
 {
-    /** @var PoeditorOptions */
+    /** @var Options */
     private $options;
 
     /**
-     * @param PoeditorOptions $options
+     * @param Options $options
      */
-    public function __construct(PoeditorOptions $options)
+    public function __construct(Options $options)
     {
         $this->options = $options;
     }

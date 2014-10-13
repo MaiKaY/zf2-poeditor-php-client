@@ -45,11 +45,9 @@ class ClientServiceFactory implements FactoryInterface
             $serviceLocator = $serviceLocator->getServiceLocator();
         }
 
-        /** @var \PhpClientPoeditor\Options\PoeditorOptions $poeditorOptions */
-        $poeditorOptions = $serviceLocator->get('PhpClientPoeditor\Options\PoeditorOptions');
+        /** @var \PhpClientPoeditor\Options\Options $options */
+        $options = $serviceLocator->get('PhpClientPoeditor\Options\Options');
 
-        $options = new ClientService($poeditorOptions);
-
-        return $options;
+        return new ClientService($options);
     }
 }
