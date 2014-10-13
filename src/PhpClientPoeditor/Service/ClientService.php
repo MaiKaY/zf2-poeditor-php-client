@@ -23,26 +23,23 @@
  * SOFTWARE.
  */
 
-return array(
-    'service_manager'   => array(
-        'factories' => array(
-            'PhpClientPoeditor\Options\PoeditorOptions' => 'PhpClientPoeditor\Options\PoeditorOptionsFactory',
-            'PhpClientPoeditor\Service\ClientService'   => 'PhpClientPoeditor\Service\ClientServiceFactory',
-        ),
-    ),
-    'PhpClientPoeditor' => array(
-        /* just have a look here: https://poeditor.com/api_reference/#Authentication */
-        'poeditor' => array(
-            'url'        => 'https://poeditor.com/api/',
-            'api_token'  => '5983fa49865f929f0e0ef19c2ce7a28f',
-            'project_id' => '1',
-            /*
-             * key (e.g. DE) = poeditor language key
-             * value (e.g. de_DE) = project language key
-             */
-            'languages'  => array(
-                'DE' => 'de_DE'
-            ),
-        )
-    )
-);
+namespace PhpClientPoeditor\Service;
+
+use PhpClientPoeditor\Options\PoeditorOptions;
+
+/**
+ * PhpClientPoeditor\Service\ClientService
+ */
+class ClientService
+{
+    /** @var PoeditorOptions */
+    private $options;
+
+    /**
+     * @param PoeditorOptions $options
+     */
+    public function __construct(PoeditorOptions $options)
+    {
+        $this->options = $options;
+    }
+}
