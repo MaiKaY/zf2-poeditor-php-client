@@ -24,6 +24,27 @@
  */
 
 return array(
+    'console'           => array(
+        'router' => array(
+            'routes' => array(
+                'php-client-poeditor-build' => array(
+                    'options' => array(
+                        'route'    => 'php-client-poeditor build',
+                        'defaults' => array(
+                            'controller' => 'PhpClientPoeditor\Controller\Build',
+                            'action'     => 'build'
+                        ),
+                    ),
+                ),
+
+            )
+        )
+    ),
+    'controllers'       => array(
+        'invokables' => array(
+            'PhpClientPoeditor\Controller\Build' => 'PhpClientPoeditor\Controller\BuildController',
+        ),
+    ),
     'service_manager'   => array(
         'factories' => array(
             'PhpClientPoeditor\Options\Options'           => 'PhpClientPoeditor\Options\OptionsFactory',
