@@ -26,12 +26,13 @@
 return array(
     'service_manager'   => array(
         'factories' => array(
-            'PhpClientPoeditor\Options\Options'       => 'PhpClientPoeditor\Options\OptionsFactory',
-            'PhpClientPoeditor\Service\ClientService' => 'PhpClientPoeditor\Service\ClientServiceFactory',
+            'PhpClientPoeditor\Options\Options'           => 'PhpClientPoeditor\Options\OptionsFactory',
+            'PhpClientPoeditor\Service\ClientService'     => 'PhpClientPoeditor\Service\ClientServiceFactory',
+            'PhpClientPoeditor\Strategy\PhpArrayStrategy' => 'PhpClientPoeditor\Strategy\PhpArrayStrategyFactory',
         ),
     ),
     'PhpClientPoeditor' => array(
-        'options' => array(
+        'options'    => array(
             'url'        => 'https://poeditor.com/api/',
             'api_token'  => '5983fa49865f929f0e0ef19c2ce7a28f',
             'project_id' => '1',
@@ -43,8 +44,15 @@ return array(
                 'DE' => 'de_DE',
             ),
             'strategies' => array(
-                'json' => 'PhpArrayStrategy',
+                'json' => 'PhpClientPoeditor\Strategy\PhpArrayStrategy',
             )
-        )
+        ),
+        'strategies' => array(
+            'PhpArrayStrategy' => array(
+                'options' => array(
+                    'save_path' => 'data/',
+                ),
+            ),
+        ),
     )
 );
