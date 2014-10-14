@@ -24,32 +24,28 @@
  */
 
 return array(
-    'console'         => array(
-        'router' => array(
-            'routes' => array(
-                'php-client-poeditor-build' => array(
-                    'options' => array(
-                        'route'    => 'php-client-poeditor build',
-                        'defaults' => array(
-                            'controller' => 'PhpClientPoeditor\Controller\Build',
-                            'action'     => 'build'
-                        ),
-                    ),
-                ),
-
+    'PhpClientPoeditor' => array(
+        'options'    => array(
+            'url'        => 'https://poeditor.com/api/',
+            'api_token'  => 'YOUR API TOKEN HERE',
+            'project_id' => 'YOUR PROJECT ID HERE',
+            /*
+             * key (e.g. DE) = poeditor language key
+             * value (e.g. de_DE) = project language key
+             */
+            'languages'  => array(
+                'DE' => 'de_DE',
+            ),
+            'strategies' => array(
+                'json' => 'PhpClientPoeditor\Strategy\PhpArrayStrategy',
             )
-        )
-    ),
-    'controllers'     => array(
-        'invokables' => array(
-            'PhpClientPoeditor\Controller\Build' => 'PhpClientPoeditor\Controller\BuildController',
         ),
-    ),
-    'service_manager' => array(
-        'factories' => array(
-            'PhpClientPoeditor\Options\Options'           => 'PhpClientPoeditor\Options\OptionsFactory',
-            'PhpClientPoeditor\Service\ClientService'     => 'PhpClientPoeditor\Service\ClientServiceFactory',
-            'PhpClientPoeditor\Strategy\PhpArrayStrategy' => 'PhpClientPoeditor\Strategy\PhpArrayStrategyFactory',
+        'strategies' => array(
+            'PhpArrayStrategy' => array(
+                'options' => array(
+                    'save_path' => 'data/',
+                ),
+            ),
         ),
     ),
 );
