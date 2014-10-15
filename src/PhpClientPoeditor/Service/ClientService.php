@@ -25,6 +25,7 @@
 
 namespace PhpClientPoeditor\Service;
 
+use PhpClientPoeditor\Exception;
 use PhpClientPoeditor\Options\Options;
 use PhpClientPoeditor\Strategy\StrategyInterface;
 use Zend\Http;
@@ -64,13 +65,13 @@ class ClientService implements ServiceLocatorAwareInterface
 
     /**
      * @return void
-     * @throws \DomainException
+     * @throws Exception\DomainException
      */
     public function build()
     {
         foreach ($this->options->getStrategies() as $contentType => $fqnStrategy) {
             if (!$this->isValidType($contentType)) {
-                throw new \DomainException('Invalid Type (' . $contentType . ')');
+                throw new Exception\DomainException('Invalid Type (' . $contentType . ')');
             }
             $strategy = $this->getStrategy($fqnStrategy);
             foreach ($this->options->getLanguages() as $languageKey => $languageProjectKey) {
@@ -91,7 +92,7 @@ class ClientService implements ServiceLocatorAwareInterface
      * @param array $data
      *
      * @return string
-     * @throws \RuntimeException
+     * @throws Exception\RuntimeException
      */
     private function getFile(array $data)
     {
@@ -116,13 +117,13 @@ class ClientService implements ServiceLocatorAwareInterface
         $response = $client->dispatch($request);
 
         if (!$response->isSuccess()) {
-            throw new \RuntimeException('Request was not successful');
+            throw new Exception\RuntimeException('Request was not successful');
         }
 
         /** @var \stdClass $content */
         $content = json_decode($response->getContent());
         if ($content->response->code != 200) {
-            throw new \RuntimeException($content->response->message);
+            throw new Exception\RuntimeException($content->response->message);
         }
 
         return $content->item;
@@ -160,13 +161,13 @@ class ClientService implements ServiceLocatorAwareInterface
      * @param string $alias
      *
      * @return StrategyInterface
-     * @throws \RuntimeException
+     * @throws Exception\RuntimeException
      */
     private function getStrategy($alias)
     {
         $strategy = $this->getServiceLocator()->get($alias);
         if (!$strategy instanceof StrategyInterface) {
-            throw new \RuntimeException(
+            throw new Exception\RuntimeException(
                 'Requested Strategy must implement PhpClientPoeditor\Strategy\StrategyInterface'
             );
         }
