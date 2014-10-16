@@ -6,8 +6,6 @@ zf2-poeditor-php-client
 [![Latest Unstable Version](https://poser.pugx.org/maikay/zf2-poeditor-php-client/v/unstable.svg)](https://packagist.org/packages/maikay/zf2-poeditor-php-client)
 [![License](https://poser.pugx.org/maikay/zf2-poeditor-php-client/license.svg)](https://packagist.org/packages/maikay/zf2-poeditor-php-client)
 
-API Client for https://poeditor.com
-
 ## Installation
 
 The recommended way to install [`maikay/zf2-poeditor-php-client`](https://packagist.org/packages/maikay/zf2-poeditor-php-client)
