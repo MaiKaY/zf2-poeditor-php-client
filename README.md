@@ -38,7 +38,7 @@ FQN                                                  | Description
 *PhpClientPoeditor\Strategy\OneToOneStrategy*      | tbd
 *PhpClientPoeditor\Strategy\PhpArrayStrategy*      | tbd
 
-### Write your own Strategies
+### Write your own Strategy
 
 To get your your own Strategy, just create a new Strategy by extending
 [`PhpClientPoeditor\Strategy\AbstractStrategy`](https://github.com/MaiKaY/zf2-poeditor-php-client/blob/master/src/PhpClientPoeditor/Strategy/AbstractStrategy.php).
