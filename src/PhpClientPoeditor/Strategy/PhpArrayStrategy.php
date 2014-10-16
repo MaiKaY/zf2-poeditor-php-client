@@ -28,24 +28,8 @@ namespace PhpClientPoeditor\Strategy;
 /**
  * PhpClientPoeditor\Strategy\PhpArrayStrategy
  */
-class PhpArrayStrategy implements StrategyInterface
+class PhpArrayStrategy extends AbstractStrategy
 {
-    /** @var string */
-    private $savePath;
-
-    /**
-     * @param string $savePath
-     */
-    public function __construct($savePath)
-    {
-        $this->savePath = (string) $savePath;
-    }
-
-    public function getSavePath()
-    {
-        return $this->savePath;
-    }
-
     public function build($content)
     {
         $tanslationContent = json_decode($content);
