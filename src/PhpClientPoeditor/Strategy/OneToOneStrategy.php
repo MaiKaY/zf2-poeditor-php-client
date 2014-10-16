@@ -23,35 +23,15 @@
  * SOFTWARE.
  */
 
-return array(
-    'PhpClientPoeditor' => array(
-        'options'    => array(
-            'url'        => 'https://poeditor.com/api/',
-            'api_token'  => 'YOUR_API_TOKEN_HERE',
-            'project_id' => 'YOUR_PROJECT_ID_HERE',
-            /*
-             * key (e.g. DE) = poeditor language key
-             * value (e.g. de_DE) = project language key
-             */
-            'languages'  => array(
-                'DE' => 'de_DE',
-            ),
-            'strategies' => array(
-                'json' => 'PhpClientPoeditor\Strategy\PhpArrayStrategy',
-                'po'   => 'PhpClientPoeditor\Strategy\OneToOneStrategy',
-            )
-        ),
-        'strategies' => array(
-            'PhpArrayStrategy' => array(
-                'options' => array(
-                    'save_path' => 'data/php_array',
-                ),
-            ),
-            'OneToOneStrategy' => array(
-                'options' => array(
-                    'save_path' => 'data/one_to_one',
-                ),
-            ),
-        ),
-    ),
-);
+namespace PhpClientPoeditor\Strategy;
+
+/**
+ * PhpClientPoeditor\Strategy\OneToOneStrategy
+ */
+class OneToOneStrategy extends AbstractStrategy
+{
+    public function build($content)
+    {
+        return $content;
+    }
+}
