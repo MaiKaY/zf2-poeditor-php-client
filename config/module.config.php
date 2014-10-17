@@ -46,11 +46,13 @@ return array(
         ),
     ),
     'service_manager' => array(
-        'factories' => array(
-            'PhpClientPoeditor\Options\Options'           => 'PhpClientPoeditor\Options\OptionsFactory',
-            'PhpClientPoeditor\Service\ClientService'     => 'PhpClientPoeditor\Service\ClientServiceFactory',
-            'PhpClientPoeditor\Strategy\PhpArrayStrategy' => 'PhpClientPoeditor\Strategy\PhpArrayStrategyFactory',
-            'PhpClientPoeditor\Strategy\OneToOneStrategy' => 'PhpClientPoeditor\Strategy\OneToOneStrategyFactory',
+        'invokables' => array(
+            'PhpClientPoeditor\Strategy\PhpArrayStrategy' => 'PhpClientPoeditor\Strategy\PhpArrayStrategy',
+            'PhpClientPoeditor\Strategy\OneToOneStrategy' => 'PhpClientPoeditor\Strategy\OneToOneStrategy',
+        ),
+        'factories'  => array(
+            'PhpClientPoeditor\Options\Options'       => 'PhpClientPoeditor\Options\OptionsFactory',
+            'PhpClientPoeditor\Service\ClientService' => 'PhpClientPoeditor\Service\ClientServiceFactory',
         ),
     ),
 );
