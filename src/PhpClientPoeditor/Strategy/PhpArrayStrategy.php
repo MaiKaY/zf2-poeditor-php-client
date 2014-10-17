@@ -30,6 +30,11 @@ namespace PhpClientPoeditor\Strategy;
  */
 class PhpArrayStrategy extends AbstractStrategy
 {
+    public function getFileExtension()
+    {
+        return 'php';
+    }
+
     public function build($content)
     {
         $tanslationContent = json_decode($content);
