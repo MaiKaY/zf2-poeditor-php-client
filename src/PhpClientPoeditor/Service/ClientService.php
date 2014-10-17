@@ -26,7 +26,7 @@
 namespace PhpClientPoeditor\Service;
 
 use PhpClientPoeditor\Exception;
-use PhpClientPoeditor\Options\Options;
+use PhpClientPoeditor\Options;
 use PhpClientPoeditor\Strategy\StrategyInterface;
 use Zend\Http;
 use Zend\ServiceManager\ServiceLocatorAwareInterface;
@@ -39,7 +39,7 @@ class ClientService implements ServiceLocatorAwareInterface
 {
     use ServiceLocatorAwareTrait;
 
-    /** @var Options */
+    /** @var Options\Options */
     private $options;
     /** @var array */
     private $validTypes = array(
@@ -56,9 +56,9 @@ class ClientService implements ServiceLocatorAwareInterface
     );
 
     /**
-     * @param Options $options
+     * @param Options\Options $options
      */
-    public function __construct(Options $options)
+    public function __construct(Options\Options $options)
     {
         $this->options = $options;
     }
@@ -69,22 +69,25 @@ class ClientService implements ServiceLocatorAwareInterface
      */
     public function build()
     {
-        foreach ($this->options->getStrategies() as $contentType => $fqnStrategy) {
-            if (!$this->isValidType($contentType)) {
-                throw new Exception\DomainException('Invalid Type (' . $contentType . ')');
+        foreach ($this->options->getStrategies() as $strategyOptions) {
+            $strategyOptions = new Options\Strategy($strategyOptions);
+
+            if (!$this->isValidType($strategyOptions->getType())) {
+                throw new Exception\DomainException('Invalid Type (' . $strategyOptions->getType() . ')');
             }
-            $strategy = $this->getStrategy($fqnStrategy);
+
+            $strategy = $this->getStrategy($strategyOptions->getName());
             foreach ($this->options->getLanguages() as $languageKey => $languageProjectKey) {
                 $data = array(
-                    'type'     => $contentType,
+                    'type'     => $strategyOptions->getType(),
                     'language' => $languageKey,
                 );
                 $content = file_get_contents($this->getFile($data));
                 $content = $strategy->build($content);
 
-                $extension = $strategy->getFileExtension() ? : $contentType;
+                $extension = $strategyOptions->getExtension() ? : $strategyOptions->getType();
                 $file = $languageProjectKey . '.' . $extension;
-                $this->writeFile($strategy->getSavePath() . '/' . $file, $content);
+                $this->writeFile($strategyOptions->getSavePath() . '/' . $file, $content);
             }
         }
     }
