@@ -99,6 +99,7 @@ class ClientService implements ServiceLocatorAwareInterface
         $data = array_merge(
             array(
                 'api_token' => $this->options->getApiToken(),
+                'id'        => $this->options->getProjectId(),
                 'action'    => 'export',
             ),
             $data
