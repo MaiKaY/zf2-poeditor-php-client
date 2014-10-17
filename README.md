@@ -13,19 +13,34 @@ is through [composer](http://getcomposer.org/) by adding dependency to your `com
 
 ```json
 {
-    "require-dev": {
-        "maikay/zf2-poeditor-php-client": "dev-master"
+    "require": {
+        "maikay/zf2-poeditor-php-client": "*"
     }
 }
 ```
 
-## Features
+## Requirements
 
-tbd
+- POEditor Account with API Access ([POEditor - pricing](https://poeditor.com/pricing/))
 
 ## Configuration
 
-tbd
+1. add [PhpClientPoeditor](https://github.com/MaiKaY/zf2-poeditor-php-client) to your Application Modules
+2. copy [php-client-poeditor.global.php.dist](https://github.com/MaiKaY/zf2-poeditor-php-client/blob/master/config/php-client-poeditor.global.php.dist) to your config autoloader folder and remove **.dist** in filename
+3. add your **api_token** and **project_id** to the [configuration](https://github.com/MaiKaY/zf2-poeditor-php-client/blob/master/config/php-client-poeditor.global.php.dist) (you can find this informations [here](https://poeditor.com/account/api))
+
+## Usage
+
+To run the configured strategies 
+```sh
+cd path/to/my/zf2-project
+```
+
+```sh
+php public/index.php php-client-poeditor build
+```
+
+**php-client-poeditor build** is configured [here](https://github.com/MaiKaY/zf2-poeditor-php-client/blob/master/config/module.config.php)
 
 ## Strategies
 
@@ -33,8 +48,8 @@ tbd
 
 FQN                                                  | Description
 ---------------------------------------------------- | ------------------------------------------
-*PhpClientPoeditor\Strategy\OneToOneStrategy*      | tbd
-*PhpClientPoeditor\Strategy\PhpArrayStrategy*      | tbd
+*PhpClientPoeditor\Strategy\OneToOneStrategy*      | saved the obtained content 1:1 [POEditor - SupportedFormats](https://poeditor.com/help/#SupportedFormats)
+*PhpClientPoeditor\Strategy\PhpArrayStrategy*      | saved the obtained content to use [Zend/I18n/Translator/Loader/PhpArray.php](https://github.com/zendframework/zf2/blob/master/library/Zend/I18n/Translator/Loader/PhpArray.php)
 
 ### Write your own Strategy
 
