@@ -50,6 +50,7 @@ return array(
             'PhpClientPoeditor\Options\Options'           => 'PhpClientPoeditor\Options\OptionsFactory',
             'PhpClientPoeditor\Service\ClientService'     => 'PhpClientPoeditor\Service\ClientServiceFactory',
             'PhpClientPoeditor\Strategy\PhpArrayStrategy' => 'PhpClientPoeditor\Strategy\PhpArrayStrategyFactory',
+            'PhpClientPoeditor\Strategy\OneToOneStrategy' => 'PhpClientPoeditor\Strategy\OneToOneStrategyFactory',
         ),
     ),
 );
