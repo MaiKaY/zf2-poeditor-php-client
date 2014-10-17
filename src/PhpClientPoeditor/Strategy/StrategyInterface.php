@@ -31,16 +31,6 @@ namespace PhpClientPoeditor\Strategy;
 interface StrategyInterface
 {
     /**
-     * @return string
-     */
-    public function getSavePath();
-
-    /**
-     * @return string|null
-     */
-    public function getFileExtension();
-
-    /**
      * @param mixed $content
      *
      * @return mixed
