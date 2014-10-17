@@ -28,13 +28,8 @@ namespace PhpClientPoeditor\Strategy;
 /**
  * PhpClientPoeditor\Strategy\PhpArrayStrategy
  */
-class PhpArrayStrategy extends AbstractStrategy
+class PhpArrayStrategy implements StrategyInterface
 {
-    public function getFileExtension()
-    {
-        return 'php';
-    }
-
     public function build($content)
     {
         $tanslationContent = json_decode($content);

@@ -28,7 +28,7 @@ namespace PhpClientPoeditor\Strategy;
 /**
  * PhpClientPoeditor\Strategy\OneToOneStrategy
  */
-class OneToOneStrategy extends AbstractStrategy
+class OneToOneStrategy implements StrategyInterface
 {
     public function build($content)
     {
