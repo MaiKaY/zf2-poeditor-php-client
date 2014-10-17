@@ -36,6 +36,11 @@ interface StrategyInterface
     public function getSavePath();
 
     /**
+     * @return string|null
+     */
+    public function getFileExtension();
+
+    /**
      * @param mixed $content
      *
      * @return mixed
