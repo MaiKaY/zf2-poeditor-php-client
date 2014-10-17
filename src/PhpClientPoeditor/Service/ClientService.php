@@ -82,7 +82,8 @@ class ClientService implements ServiceLocatorAwareInterface
                 $content = file_get_contents($this->getFile($data));
                 $content = $strategy->build($content);
 
-                $file = $languageProjectKey . '.' . $contentType;
+                $extension = $strategy->getFileExtension() ? : $contentType;
+                $file = $languageProjectKey . '.' . $extension;
                 $this->writeFile($strategy->getSavePath() . '/' . $file, $content);
             }
         }
