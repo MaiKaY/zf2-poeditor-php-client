@@ -38,6 +38,8 @@ class Strategy extends AbstractOptions
     private $type;
     /** @var string */
     private $extension;
+    /** @var string */
+    private $savePath;
 
     /**
      * @param string $extension
@@ -75,6 +77,25 @@ class Strategy extends AbstractOptions
     public function getName()
     {
         return $this->name;
+    }
+
+    /**
+     * @param string $savePath
+     *
+     * @return Strategy
+     */
+    public function setSavePath($savePath)
+    {
+        $this->savePath = (string) $savePath;
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getSavePath()
+    {
+        return $this->savePath;
     }
 
     /**
