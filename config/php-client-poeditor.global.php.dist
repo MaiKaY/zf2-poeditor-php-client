@@ -25,7 +25,7 @@
 
 return array(
     'PhpClientPoeditor' => array(
-        'options'    => array(
+        'options' => array(
             'url'        => 'https://poeditor.com/api/',
             'api_token'  => 'YOUR_API_TOKEN_HERE',
             'project_id' => 'YOUR_PROJECT_ID_HERE',
@@ -37,21 +37,18 @@ return array(
                 'DE' => 'de_DE',
             ),
             'strategies' => array(
-                'json' => 'PhpClientPoeditor\Strategy\PhpArrayStrategy',
-                'po'   => 'PhpClientPoeditor\Strategy\OneToOneStrategy',
-            )
-        ),
-        'strategies' => array(
-            'PhpArrayStrategy' => array(
-                'options' => array(
+                array(
+                    'name'      => 'PhpClientPoeditor\Strategy\PhpArrayStrategy',
+                    'type'      => 'json',
+                    'extension' => 'php',
                     'save_path' => 'data/php_array',
                 ),
-            ),
-            'OneToOneStrategy' => array(
-                'options' => array(
+                array(
+                    'name'      => 'PhpClientPoeditor\Strategy\OneToOneStrategy',
+                    'type'      => 'po',
                     'save_path' => 'data/one_to_one',
                 ),
-            ),
+            )
         ),
     ),
 );
