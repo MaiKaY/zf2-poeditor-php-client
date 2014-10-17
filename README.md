@@ -38,8 +38,5 @@ FQN                                                  | Description
 
 ### Write your own Strategy
 
-To get your your own Strategy, just create a new Strategy by extending
-[`PhpClientPoeditor\Strategy\AbstractStrategy`](https://github.com/MaiKaY/zf2-poeditor-php-client/blob/master/src/PhpClientPoeditor/Strategy/AbstractStrategy.php).
-
-Beside this you can create a Strategy by implementing
-[`PhpClientPoeditor\Strategy\StrategyInterface`](https://github.com/MaiKaY/zf2-poeditor-php-client/blob/master/src/PhpClientPoeditor/Strategy/StrategyInterface.php)
+To get your your own Strategy, just create a Strategy by implementing
+[`PhpClientPoeditor\Strategy\StrategyInterface`](https://github.com/MaiKaY/zf2-poeditor-php-client/blob/master/src/PhpClientPoeditor/Strategy/StrategyInterface.php).
