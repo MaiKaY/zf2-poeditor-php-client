@@ -45,4 +45,9 @@ abstract class AbstractStrategy implements StrategyInterface
     {
         return $this->savePath;
     }
+
+    public function getFileExtension()
+    {
+        return null;
+    }
 }
