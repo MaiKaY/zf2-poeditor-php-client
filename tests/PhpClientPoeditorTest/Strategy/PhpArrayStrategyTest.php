@@ -54,6 +54,7 @@ class PhpArrayStrategyTest extends \PHPUnit_Framework_TestCase
 
         $result = $this->fixture->build(json_encode($translations));
         $this->assertSame($this->getBuildOutput(), $result);
+        $this->assertTrue(is_string($result));
     }
 
     /**
