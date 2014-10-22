@@ -46,7 +46,7 @@ php public/index.php php-client-poeditor build
 
 ### Existing Strategies
 
-FQN                                                  | Description
+ServiceManagerKey                                                  | Description
 ---------------------------------------------------- | ------------------------------------------
 *PhpClientPoeditor\Strategy\OneToOneStrategy*      | saved the obtained content 1:1 [POEditor - SupportedFormats](https://poeditor.com/help/#SupportedFormats)
 *PhpClientPoeditor\Strategy\PhpArrayStrategy*      | saved the obtained content to use [Zend/I18n/Translator/Loader/PhpArray.php](https://github.com/zendframework/zf2/blob/master/library/Zend/I18n/Translator/Loader/PhpArray.php)
