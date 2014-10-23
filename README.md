@@ -48,8 +48,9 @@ php public/index.php php-client-poeditor build
 
 ServiceManagerKey                                                  | Description
 ---------------------------------------------------- | ------------------------------------------
-*PhpClientPoeditor\Strategy\OneToOneStrategy*      | saved the obtained content 1:1 [POEditor - SupportedFormats](https://poeditor.com/help/#SupportedFormats)
-*PhpClientPoeditor\Strategy\PhpArrayStrategy*      | saved the obtained content to use [Zend/I18n/Translator/Loader/PhpArray.php](https://github.com/zendframework/zf2/blob/master/library/Zend/I18n/Translator/Loader/PhpArray.php)
+*[PhpClientPoeditor\Strategy\OneToOneStrategy](https://github.com/MaiKaY/zf2-poeditor-php-client/blob/master/src/PhpClientPoeditor/Strategy/OneToOneStrategy.php)*      | saved the obtained content 1:1 [POEditor - SupportedFormats](https://poeditor.com/help/#SupportedFormats)
+*[PhpClientPoeditor\Strategy\PhpArrayStrategy](https://github.com/MaiKaY/zf2-poeditor-php-client/blob/master/src/PhpClientPoeditor/Strategy/PhpArrayStrategy.php)*      | saved the obtained content to use [Zend/I18n/Translator/Loader/PhpArray.php](https://github.com/zendframework/zf2/blob/master/library/Zend/I18n/Translator/Loader/PhpArray.php)
+*[PhpClientPoeditor\Strategy\JsonKeyValueStrategy](https://github.com/MaiKaY/zf2-poeditor-php-client/blob/master/src/PhpClientPoeditor/Strategy/JsonKeyValueStrategy.php)*      | saved the obtained content like `PhpArrayStrategy` - just in json format
 
 ### Write your own Strategy
 
