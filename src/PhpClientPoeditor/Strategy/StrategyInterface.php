@@ -31,9 +31,9 @@ namespace PhpClientPoeditor\Strategy;
 interface StrategyInterface
 {
     /**
-     * @param mixed $content
+     * @param string $content
      *
-     * @return mixed
+     * @return string
      */
     public function build($content);
 }
