@@ -25,7 +25,7 @@ is through [composer](http://getcomposer.org/) by adding dependency to your `com
 
 ## Configuration
 
-1. add [PhpClientPoeditor](https://github.com/MaiKaY/zf2-poeditor-php-client) to your Application Modules
+1. add `PhpClientPoeditor` to your Application Modules
 2. copy [php-client-poeditor.global.php.dist](https://github.com/MaiKaY/zf2-poeditor-php-client/blob/master/config/php-client-poeditor.global.php.dist) to your config autoloader folder and remove **.dist** in filename
 3. update your **api_token** and **project_id** in the [configuration](https://github.com/MaiKaY/zf2-poeditor-php-client/blob/master/config/php-client-poeditor.global.php.dist) (you can find this informations [here](https://poeditor.com/account/api))
 
@@ -46,7 +46,7 @@ php public/index.php php-client-poeditor build
 
 ### Existing Strategies
 
-FQN                                                  | Description
+ServiceManagerKey                                                  | Description
 ---------------------------------------------------- | ------------------------------------------
 *PhpClientPoeditor\Strategy\OneToOneStrategy*      | saved the obtained content 1:1 [POEditor - SupportedFormats](https://poeditor.com/help/#SupportedFormats)
 *PhpClientPoeditor\Strategy\PhpArrayStrategy*      | saved the obtained content to use [Zend/I18n/Translator/Loader/PhpArray.php](https://github.com/zendframework/zf2/blob/master/library/Zend/I18n/Translator/Loader/PhpArray.php)
