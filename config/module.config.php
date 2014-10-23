@@ -47,8 +47,9 @@ return array(
     ),
     'service_manager' => array(
         'invokables' => array(
-            'PhpClientPoeditor\Strategy\PhpArrayStrategy' => 'PhpClientPoeditor\Strategy\PhpArrayStrategy',
-            'PhpClientPoeditor\Strategy\OneToOneStrategy' => 'PhpClientPoeditor\Strategy\OneToOneStrategy',
+            'PhpClientPoeditor\Strategy\OneToOneStrategy'     => 'PhpClientPoeditor\Strategy\OneToOneStrategy',
+            'PhpClientPoeditor\Strategy\PhpArrayStrategy'     => 'PhpClientPoeditor\Strategy\PhpArrayStrategy',
+            'PhpClientPoeditor\Strategy\JsonKeyValueStrategy' => 'PhpClientPoeditor\Strategy\JsonKeyValueStrategy',
         ),
         'factories'  => array(
             'PhpClientPoeditor\Options\Options'       => 'PhpClientPoeditor\Options\OptionsFactory',
