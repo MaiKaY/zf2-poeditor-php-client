@@ -48,6 +48,9 @@ class OneToOneStrategyTest extends \PHPUnit_Framework_TestCase
     public function testBuild()
     {
         $content = 'MY_CONTENT';
-        $this->assertSame($content, $this->fixture->build($content));
+
+        $result = $this->fixture->build($content);
+        $this->assertSame($content, $result);
+        $this->assertTrue(is_string($result));
     }
 }
