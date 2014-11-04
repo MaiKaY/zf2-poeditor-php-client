@@ -45,7 +45,7 @@ class PhpArrayStrategy implements StrategyInterface
             $content .= sprintf(
                 '"%s" => "%s",' . "\n",
                 $translationKey,
-                $translation
+                htmlspecialchars($translation, ENT_COMPAT)
             );
         }
         $content .= ');';
