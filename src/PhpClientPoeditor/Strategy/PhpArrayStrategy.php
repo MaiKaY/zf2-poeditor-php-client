@@ -45,11 +45,25 @@ class PhpArrayStrategy implements StrategyInterface
             $content .= sprintf(
                 '"%s" => "%s",' . "\n",
                 $translationKey,
-                htmlspecialchars($translation, ENT_COMPAT)
+                $this->escapeTranslation($translation)
             );
         }
         $content .= ');';
 
         return $content;
+    }
+
+    /**
+     * @param string $translation
+     *
+     * @return string
+     */
+    private function escapeTranslation($translation)
+    {
+        return str_replace(
+            array('"'),
+            array('\"'),
+            (string) $translation
+        );
     }
 }
