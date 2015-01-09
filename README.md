@@ -5,6 +5,7 @@ zf2-poeditor-php-client
 [![Total Downloads](https://poser.pugx.org/maikay/zf2-poeditor-php-client/downloads.svg)](https://packagist.org/packages/maikay/zf2-poeditor-php-client)
 [![Latest Unstable Version](https://poser.pugx.org/maikay/zf2-poeditor-php-client/v/unstable.svg)](https://packagist.org/packages/maikay/zf2-poeditor-php-client)
 [![License](https://poser.pugx.org/maikay/zf2-poeditor-php-client/license.svg)](https://packagist.org/packages/maikay/zf2-poeditor-php-client)
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/MaiKaY/zf2-poeditor-php-client/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
 
 ## Installation
 
@@ -56,7 +57,3 @@ ServiceManagerKey                                                  | Description
 
 To get your your own Strategy, just create a Strategy by implementing
 [`PhpClientPoeditor\Strategy\StrategyInterface`](https://github.com/MaiKaY/zf2-poeditor-php-client/blob/master/src/PhpClientPoeditor/Strategy/StrategyInterface.php).
-
-
-[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/MaiKaY/zf2-poeditor-php-client/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
-
