@@ -56,3 +56,7 @@ ServiceManagerKey                                                  | Description
 
 To get your your own Strategy, just create a Strategy by implementing
 [`PhpClientPoeditor\Strategy\StrategyInterface`](https://github.com/MaiKaY/zf2-poeditor-php-client/blob/master/src/PhpClientPoeditor/Strategy/StrategyInterface.php).
+
+
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/MaiKaY/zf2-poeditor-php-client/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+
