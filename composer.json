@@ -1,5 +1,5 @@
 {
-    "name": "yo-han/zf2-poeditor-php-client",
+    "name": "maikay/zf2-poeditor-php-client",
     "type": "library",
     "description": "API Client for https://poeditor.com",
     "homepage": "https://github.com/maikay/zf2-poeditor-php-client",
