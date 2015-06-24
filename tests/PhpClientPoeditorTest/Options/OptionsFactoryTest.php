@@ -54,7 +54,7 @@ class OptionsFactoryTest extends \PHPUnit_Framework_TestCase
         );
 
         $serviceLocatorMock = \Mockery::mock('Zend\ServiceManager\ServiceLocatorInterface');
-        $serviceLocatorMock->shouldReceive('get')->with('Config')->andReturn($config);
+        $serviceLocatorMock->shouldReceive('get')->with('Config')->andReturn($config)->once();
 
         $instance = $this->fixture->createService($serviceLocatorMock);
         $this->assertInstanceOf('PhpClientPoeditor\Options\Options', $instance);
