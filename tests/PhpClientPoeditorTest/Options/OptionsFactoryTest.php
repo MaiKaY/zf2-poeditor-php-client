@@ -34,9 +34,13 @@ class OptionsFactoryTest extends \PHPUnit_Framework_TestCase
 {
     /** @var OptionsFactory */
     protected $fixture;
+    /** @var \Zend\ServiceManager\ServiceLocatorInterface|\Mockery\MockInterface */
+    protected $serviceLocator;
 
     public function setUp()
     {
+        $this->serviceLocator = \Mockery::mock('Zend\ServiceManager\ServiceLocatorInterface');
+
         $this->fixture = new OptionsFactory;
     }
 
@@ -53,10 +57,13 @@ class OptionsFactoryTest extends \PHPUnit_Framework_TestCase
             ),
         );
 
-        $serviceLocatorMock = \Mockery::mock('Zend\ServiceManager\ServiceLocatorInterface');
-        $serviceLocatorMock->shouldReceive('get')->with('Config')->andReturn($config)->once();
+        $this->serviceLocator
+            ->shouldReceive('get')
+            ->with('Config')
+            ->andReturn($config)
+            ->once();
 
-        $instance = $this->fixture->createService($serviceLocatorMock);
+        $instance = $this->fixture->createService($this->serviceLocator);
         $this->assertInstanceOf('PhpClientPoeditor\Options\Options', $instance);
     }
 }
