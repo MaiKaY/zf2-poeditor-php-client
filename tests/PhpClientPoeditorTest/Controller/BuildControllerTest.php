@@ -58,11 +58,13 @@ class BuildControllerTest extends \PHPUnit_Framework_TestCase
         $this->serviceLocator
             ->shouldReceive('get')
             ->with('PhpClientPoeditor\Service\ClientService')
-            ->andReturn($this->clientService);
+            ->andReturn($this->clientService)
+            ->once();
 
         $this->clientService
             ->shouldReceive('build')
-            ->andReturnNull();
+            ->andReturnNull()
+            ->once();
 
         $result = $this->fixture->buildAction();
         $this->assertInstanceOf('Zend\View\Model\JsonModel', $result);
