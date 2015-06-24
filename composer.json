@@ -26,7 +26,7 @@
     "require": {
         "php": ">=5.4",
         "ext-curl": "*",
-        "zendframework/zendframework": "~2.4.0"
+        "zendframework/zendframework": "~2.4"
     },
     "require-dev": {
         "phpunit/phpunit": "4.3.*",
