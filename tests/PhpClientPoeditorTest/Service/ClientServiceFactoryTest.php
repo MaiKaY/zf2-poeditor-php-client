@@ -57,7 +57,8 @@ class ClientServiceFactoryTest extends \PHPUnit_Framework_TestCase
         $this->serviceLocator
             ->shouldReceive('get')
             ->with('PhpClientPoeditor\Options\Options')
-            ->andReturn($this->options);
+            ->andReturn($this->options)
+            ->once();
 
         $instance = $this->fixture->createService($this->serviceLocator);
         $this->assertInstanceOf('PhpClientPoeditor\Service\ClientService', $instance);
