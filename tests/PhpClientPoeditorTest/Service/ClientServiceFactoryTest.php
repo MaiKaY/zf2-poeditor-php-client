@@ -34,9 +34,16 @@ class ClientServiceFactoryTest extends \PHPUnit_Framework_TestCase
 {
     /** @var ClientServiceFactory */
     protected $fixture;
+    /** @var \Zend\ServiceManager\ServiceLocatorInterface|\Mockery\MockInterface */
+    protected $serviceLocator;
+    /** @var \PhpClientPoeditor\Options\Options|\Mockery\MockInterface */
+    protected $options;
 
     public function setUp()
     {
+        $this->serviceLocator = \Mockery::mock('Zend\ServiceManager\ServiceLocatorInterface');
+        $this->options = \Mockery::mock('PhpClientPoeditor\Options\Options');
+
         $this->fixture = new ClientServiceFactory;
     }
 
@@ -47,11 +54,12 @@ class ClientServiceFactoryTest extends \PHPUnit_Framework_TestCase
 
     public function testCreateService()
     {
-        $optionsMock = \Mockery::mock('PhpClientPoeditor\Options\Options');
-        $serviceLocatorMock = \Mockery::mock('Zend\ServiceManager\ServiceLocatorInterface');
-        $serviceLocatorMock->shouldReceive('get')->with('PhpClientPoeditor\Options\Options')->andReturn($optionsMock);
+        $this->serviceLocator
+            ->shouldReceive('get')
+            ->with('PhpClientPoeditor\Options\Options')
+            ->andReturn($this->options);
 
-        $instance = $this->fixture->createService($serviceLocatorMock);
+        $instance = $this->fixture->createService($this->serviceLocator);
         $this->assertInstanceOf('PhpClientPoeditor\Service\ClientService', $instance);
     }
 }
