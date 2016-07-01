@@ -115,10 +115,7 @@ class ClientService implements ServiceLocatorAwareInterface
             return $this->files[$fileKey];
         }
 
-        $adapter = new Http\Client\Adapter\Curl;
-        $client = new Http\Client;
-        $client->setAdapter($adapter);
-
+        $client = new Http\Client(null, $this->options->getClient());
         $request = new Http\Request;
         $request->setUri($this->options->getUrl());
         $request->setMethod(Http\Request::METHOD_POST);
