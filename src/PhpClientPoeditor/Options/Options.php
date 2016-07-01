@@ -32,6 +32,10 @@ use Zend\Stdlib\AbstractOptions;
  */
 class Options extends AbstractOptions
 {
+    /** @var array */
+    private $client = array(
+        'adapter' => 'Zend\Http\Client\Adapter\Curl',
+    );
     /** @var string */
     private $url;
     /** @var string */
@@ -60,6 +64,25 @@ class Options extends AbstractOptions
     public function getApiToken()
     {
         return $this->apiToken;
+    }
+
+    /**
+     * @return array
+     */
+    public function getClient()
+    {
+        return $this->client;
+    }
+
+    /**
+     * @param array $client
+     *
+     * @return Options
+     */
+    public function setClient(array$client)
+    {
+        $this->client = $client;
+        return $this;
     }
 
     /**
