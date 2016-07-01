@@ -48,7 +48,13 @@ return array(
                     'type'      => 'po',
                     'save_path' => 'data/one_to_one',
                 ),
-            )
+            ),
+            'client'     => array(
+                'adapter'     => 'Zend\Http\Client\Adapter\Curl',
+                'curloptions' => array(
+                    CURLOPT_CONNECTTIMEOUT => 20,
+                )
+            ),
         ),
     ),
 );
