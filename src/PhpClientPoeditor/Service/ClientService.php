@@ -39,6 +39,8 @@ class ClientService implements ServiceLocatorAwareInterface
 {
     use ServiceLocatorAwareTrait;
 
+    /** @var array */
+    private $files = array();
     /** @var Options\Options */
     private $options;
     /** @var array */
@@ -85,7 +87,7 @@ class ClientService implements ServiceLocatorAwareInterface
                 $content = file_get_contents($this->getFile($data));
                 $content = $strategy->build($content);
 
-                $extension = $strategyOptions->getExtension() ? : $strategyOptions->getType();
+                $extension = $strategyOptions->getExtension() ?: $strategyOptions->getType();
                 $file = $languageProjectKey . '.' . $extension;
                 $this->writeFile($strategyOptions->getSavePath() . '/' . $file, $content);
             }
@@ -108,6 +110,10 @@ class ClientService implements ServiceLocatorAwareInterface
             ),
             $data
         );
+        $fileKey = md5(json_encode($data));
+        if (isset($this->files[$fileKey])) {
+            return $this->files[$fileKey];
+        }
 
         $adapter = new Http\Client\Adapter\Curl;
         $client = new Http\Client;
@@ -131,7 +137,8 @@ class ClientService implements ServiceLocatorAwareInterface
             throw new Exception\RuntimeException($content->response->message);
         }
 
-        return $content->item;
+        $this->files[$fileKey] = $content->item;
+        return $this->files[$fileKey];
     }
 
     /**
