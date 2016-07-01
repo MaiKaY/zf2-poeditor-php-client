@@ -14,7 +14,7 @@ is through [composer](http://getcomposer.org/) by adding dependency to your `com
 ```json
 {
     "require": {
-        "maikay/zf2-poeditor-php-client": "0.2.*"
+        "maikay/zf2-poeditor-php-client": "0.3.*"
     }
 }
 ```
