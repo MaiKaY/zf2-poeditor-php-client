@@ -45,6 +45,22 @@ class OptionsTest extends \PHPUnit_Framework_TestCase
         $this->assertInstanceOf('Zend\Stdlib\AbstractOptions', $this->fixture);
     }
 
+    public function testMutateClient()
+    {
+        $value = array(
+            'adapter' => 'Zend\Http\Client\Adapter\Curl',
+        );
+        $this->fixture->setClient($value);
+        $this->assertSame($value, $this->fixture->getClient());
+    }
+
+    public function testMutateRequestDelay()
+    {
+        $value = 5000000;
+        $this->fixture->setRequestDelay($value);
+        $this->assertSame($value, $this->fixture->getRequestDelay());
+    }
+
     public function testMutateUrl()
     {
         $value = 'https://poeditor.com/api/';
