@@ -26,17 +26,17 @@
 return array(
     'PhpClientPoeditor' => array(
         'options' => array(
-            'url'        => 'https://poeditor.com/api/',
-            'api_token'  => 'YOUR_API_TOKEN_HERE',
-            'project_id' => 'YOUR_PROJECT_ID_HERE',
+            'url'           => 'https://poeditor.com/api/',
+            'api_token'     => 'YOUR_API_TOKEN_HERE',
+            'project_id'    => 'YOUR_PROJECT_ID_HERE',
             /*
              * key (e.g. DE) = poeditor language key
              * value (e.g. de_DE) = project language key
              */
-            'languages'  => array(
+            'languages'     => array(
                 'DE' => 'de_DE',
             ),
-            'strategies' => array(
+            'strategies'    => array(
                 array(
                     'name'      => 'PhpClientPoeditor\Strategy\PhpArrayStrategy',
                     'type'      => 'json',
@@ -49,12 +49,17 @@ return array(
                     'save_path' => 'data/one_to_one',
                 ),
             ),
-            'client'     => array(
+            'client'        => array(
                 'adapter'     => 'Zend\Http\Client\Adapter\Curl',
                 'curloptions' => array(
                     CURLOPT_CONNECTTIMEOUT => 20,
                 )
             ),
+            /*
+             * usleep (http://php.net/manual/function.usleep.php) is used to delay the request
+             * 5000000 = 5 seconds delay
+             */
+            'request_delay' => 5000000,
         ),
     ),
 );
