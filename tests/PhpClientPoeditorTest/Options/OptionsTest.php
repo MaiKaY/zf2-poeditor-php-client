@@ -45,6 +45,14 @@ class OptionsTest extends \PHPUnit_Framework_TestCase
         $this->assertInstanceOf('Zend\Stdlib\AbstractOptions', $this->fixture);
     }
 
+    public function testDefaultClientValue()
+    {
+        $value = array(
+            'adapter' => 'Zend\Http\Client\Adapter\Curl',
+        );
+        $this->assertSame($value, $this->fixture->getClient());
+    }
+
     public function testMutateClient()
     {
         $value = array(
@@ -52,6 +60,12 @@ class OptionsTest extends \PHPUnit_Framework_TestCase
         );
         $this->fixture->setClient($value);
         $this->assertSame($value, $this->fixture->getClient());
+    }
+
+    public function testDefaultRequestDelayValue()
+    {
+        $value = 0;
+        $this->assertSame($value, $this->fixture->getRequestDelay());
     }
 
     public function testMutateRequestDelay()
@@ -82,6 +96,12 @@ class OptionsTest extends \PHPUnit_Framework_TestCase
         $this->assertSame($value, $this->fixture->getProjectId());
     }
 
+    public function testDefaultLanguagesValue()
+    {
+        $value = array();
+        $this->assertSame($value, $this->fixture->getLanguages());
+    }
+
     public function testMutateLanguages()
     {
         $value = array(
@@ -89,6 +109,12 @@ class OptionsTest extends \PHPUnit_Framework_TestCase
         );
         $this->fixture->setLanguages($value);
         $this->assertSame($value, $this->fixture->getLanguages());
+    }
+
+    public function testDefaultStrategiesValue()
+    {
+        $value = array();
+        $this->assertSame($value, $this->fixture->getStrategies());
     }
 
     public function testMutateStrategies()
