@@ -121,6 +121,8 @@ class ClientService implements ServiceLocatorAwareInterface
         $request->setMethod(Http\Request::METHOD_POST);
         $request->setContent(http_build_query($data));
 
+        usleep($this->options->getRequestDelay());
+
         /** @var \Zend\Http\Response $response */
         $response = $client->dispatch($request);
 
