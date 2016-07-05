@@ -36,6 +36,8 @@ class Options extends AbstractOptions
     private $client = array(
         'adapter' => 'Zend\Http\Client\Adapter\Curl',
     );
+    /** @var int */
+    private $requestDelay = 0;
     /** @var string */
     private $url;
     /** @var string */
@@ -121,6 +123,25 @@ class Options extends AbstractOptions
     public function getProjectId()
     {
         return $this->projectId;
+    }
+
+    /**
+     * @return int
+     */
+    public function getRequestDelay()
+    {
+        return $this->requestDelay;
+    }
+
+    /**
+     * @param int $requestDelay
+     *
+     * @return Options
+     */
+    public function setRequestDelay($requestDelay)
+    {
+        $this->requestDelay = (int) $requestDelay;
+        return $this;
     }
 
     /**
